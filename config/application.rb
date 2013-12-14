@@ -7,7 +7,14 @@ require 'rails/all'
 Bundler.require(:default, Rails.env)
 
 module Rosap
+    GITHUB_CLIENT_ID = "b415d2e0619f8688cbf3"
+    GITHUB_CLIENT_SECRET = "294097a8e10d47e42158f67677af9b5ba4144e62"
+
   class Application < Rails::Application
+    load 'lib/githubapi/GithubCredentials.rb'
+
+    @github_current_user = {}
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -19,5 +26,13 @@ module Rosap
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    def set_github_current_user github_current_user
+        @github_current_user = github_current_user
+    end
+
+    def get_github_current_user
+        @github_current_user
+    end
   end
 end

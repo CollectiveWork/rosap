@@ -1,6 +1,9 @@
 Rosap::Application.routes.draw do
   
   devise_for :github_users
+
+    match '/github/login', to: 'users_github#login', via: :get
+    match '/github/login', to: 'users_github#make_login', via: :post
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
