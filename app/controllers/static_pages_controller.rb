@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+
   before_action :set_static_page, only: [:show, :edit, :update, :destroy]
 
   # GET /static_pages
@@ -72,3 +73,4 @@ class StaticPagesController < ApplicationController
       params[:static_page]
     end
 end
+

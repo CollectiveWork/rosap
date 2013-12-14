@@ -11,8 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 
 ActiveRecord::Schema.define(version: 20131214102208) do
+=======
+ActiveRecord::Schema.define(version: 20131214104747) do
+>>>>>>> 4fad0bed04e0545920ba97e6382eabe9da578de6
 
   create_table "github_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -32,7 +36,16 @@ ActiveRecord::Schema.define(version: 20131214102208) do
   add_index "github_users", ["email"], name: "index_github_users_on_email", unique: true
   add_index "github_users", ["reset_password_token"], name: "index_github_users_on_reset_password_token", unique: true
 
+<<<<<<< HEAD
   create_table "static_pages", force: true do |t|
+=======
+  create_table "users", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+>>>>>>> 4fad0bed04e0545920ba97e6382eabe9da578de6
     t.datetime "created_at"
     t.datetime "updated_at"
   end
