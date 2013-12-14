@@ -9,4 +9,5 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Rosap::Application.config.secret_key_base = 'f7462611325f2157ef4c10aaf40969ffdaa2e4e353f9d031d91b4c2de36ff2dca2bdd945862aa67f2239c418a9b1576a9dfeb8077e535584030d5a25273910e4'
+Rosap::Application.config.secret_key_base = '375cf5d791dea9c361f102a942d87f72b5aca8dcac739b507fd367bf786413f8ffe31d4a178bd94c268f8c687200c11422ade9876612369df3c7cea321f10050'
+
