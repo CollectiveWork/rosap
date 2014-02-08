@@ -1,17 +1,17 @@
 class PostStoryController < ApplicationController
-  class FbMessage
-    attr_accessor :message,:picture,:link,:name,:description
-  end
-
 
  def auth
  
      cookies["title"] = { :value => "#{params[:title]}", :expires => 1.minute.from_now }
      cookies["url"] = { :value => "#{params[:url]}", :expires => 1.minute.from_now }
      cookies["desc"] = { :value => "#{params[:desc]}", :expires => 1.minute.from_now }
- 
+
+     cookies["message"] = { :value => "#{params[:message]}", :expires => 1.minute.from_now }
+     cookies["picture"] = { :value => "#{params[:picture]}", :expires => 1.minute.from_now }
+     cookies["link"] = { :value => "#{params[:link]}", :expires => 1.minute.from_now }
+     cookies["name"] = { :value => "#{params[:name]}", :expires => 1.minute.from_now }
+     cookies["description"] = { :value => "#{params[:description]}", :expires => 1.minute.from_now }
     
- 
   @client = client
  
     redirect_to @client.authorization_uri(
@@ -22,10 +22,6 @@ class PostStoryController < ApplicationController
  
  
   def callback
-
-    post=FbMessage.new
-
-    
 
     @client = client
     @client.authorization_code = params[:code]
@@ -39,11 +35,11 @@ class PostStoryController < ApplicationController
     desc  = cookies["desc"]
  
     me.feed!(
-	  :message => post.message,
-	  :picture => post.picture,
-	  :link => post.link,
-	  :name => post.name,
-	  :description => post.description
+	  :message => cookies["message"],
+	  :picture => cookies["picture"],
+	  :link => cookies["link"],
+	  :name => cookies["name"],
+	  :description => cookies["description"]
 	) 
  
     redirect_to root_path
