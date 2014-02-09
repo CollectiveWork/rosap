@@ -1,0 +1,15 @@
+<% unless project.nil? %>
+  <tr>
+    <td><%= project['id'] %></td>
+    <td><%= project['name'] %></td>
+    <td><%= project['description'] %></td>
+    <td><%= link_to "Repo url", project['html_url'], target: '_blank' %></td>
+    <td>
+    <% if Project.where('repo_id = ?', project['id']).empty? %>
+    	<%= link_to "Add to Open Source", projects_path(:repo_id => project['id'], :name => project['name'], :description => project['description'], :url => project['html_url']), :method => :post %>
+    <% else %>
+    	<%= link_to "Remove from Open Source", projects_path(:repo_id => project['id']), :method => :delete %>
+    <% end %>
+    </td>
+  </tr>
+<% end %>

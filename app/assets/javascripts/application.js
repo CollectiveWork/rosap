@@ -15,3 +15,9 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+
+$(document).ready(function(){
+	$('#search').on('keyup', function() {
+		$("form#products_search").submit();
+	});
+});

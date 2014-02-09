@@ -1,0 +1,17 @@
+<h1>My repositories</h1>
+<div class="bs-example">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Desription</th>
+          <th>URL</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      	<%= render partial: 'project', collection: @repos  %>
+      </tbody>
+    </table>
+</div>

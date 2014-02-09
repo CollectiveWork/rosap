@@ -1,5 +1,6 @@
 class UserGithub  < ActiveRecord::Base
   include HTTParty
+
   headers "User-Agent" => "Rosap"
 
 
@@ -17,6 +18,13 @@ class UserGithub  < ActiveRecord::Base
     }
 
     response.parsed_response
+  end
+
+  def self.get_repos_details(username)
+    url_link = "https://api.github.com/users/#{username}/repos"
+    headers = {"User-Agent" => "Rosap"}
+
+    repos = HTTParty.get(url_link, headers: headers)
   end
   
 end

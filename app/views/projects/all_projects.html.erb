@@ -1,0 +1,17 @@
+<h1>All Open Source Projects</h1>
+<div class="bs-example">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Owner</th>
+          <th>Desription</th>
+          <th>URL</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+      	<%= render partial: 'project_for_all', collection: @repos  %>
+      </tbody>
+    </table>
+</div>

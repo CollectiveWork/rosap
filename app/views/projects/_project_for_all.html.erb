@@ -1,0 +1,9 @@
+<% unless project_for_all.nil? %>
+  <tr>
+    <td><%= project_for_all['repo_id'] %></td>
+    <td><%= project_for_all['name'] %></td>
+    <td><%= project_for_all['owner'] %></td>
+    <td><%= project_for_all['description'] %></td>
+    <td><%= link_to "Repo url", project_for_all['url'], target: '_blank' %></td>
+  </tr>
+<% end %>

@@ -3,8 +3,19 @@ Rosap::Application.routes.draw do
 
   devise_for :github_users
 
+    root  to: 'static_pages#index', via: :get
     match '/github/login', to: 'users_github#login', via: :get
     match '/github/login', to: 'users_github#make_login', via: :post
+    match '/about', to:'static_pages#about', via: :get
+    match '/contact', to: 'static_pages#contact', via: :get
+    match '/logout', to: 'users_github#destroy', via: :delete
+
+    resource :users_github, controller: :users_github
+    resource :projects do
+      collection do
+        match '/all', to: 'projects#all_projects', via: :get
+      end
+    end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

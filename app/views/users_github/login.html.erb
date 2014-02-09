@@ -1,7 +1,12 @@
 <h2>Sign in</h2>
+<% unless flash[:notice].nil? %>
+	<div class="alert alert-danger">
+        <strong>Oh snap!</strong>Bad credentials.
+    </div>
+<% end %>
 
 <%= form_for(@client, :url => github_login_path, :method => :post) do |f| %>
-
+	
   <div><%= f.label :username %><br />
   <%= f.text_field :username %></div>
 
