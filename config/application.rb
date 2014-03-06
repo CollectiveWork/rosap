@@ -34,5 +34,9 @@ module Rosap
     def get_github_current_user
         @github_current_user
     end
+    def get_github_current_user_name
+        return @github_current_user['login'] if @github_current_user['name'].blank? 
+        @github_current_user['name']
+    end
   end
 end

@@ -7,6 +7,7 @@ class UsersGithubController < ApplicationController
 	def make_login
 		client = UserGithub.new(client_params)
 		@response = client.get_user_details
+		puts @response.inspect
 		Rosap::Application.set_github_current_user @response
 
 

@@ -1,9 +1,38 @@
 <% unless project_for_all.nil? %>
-  <tr>
-    <td><%= project_for_all['repo_id'] %></td>
-    <td><%= project_for_all['name'] %></td>
-    <td><%= project_for_all['owner'] %></td>
-    <td><%= project_for_all['description'] %></td>
-    <td><%= link_to "Repo url", project_for_all['url'], target: '_blank' %></td>
-  </tr>
+<tr>
+	<td><%= project_for_all['repo_id'] %></td>
+	<td><%= project_for_all['name'] %></td>
+	<td><%= project_for_all['owner'] %></td>
+	<td><%= project_for_all['description'] %></td>
+	<td><%= link_to "Repo url", project_for_all['url'], target: '_blank' %></td>
+	<td><%= render partial: "actions_all_projects", locals: {project: project_for_all} %></td>
+</tr>
+<tr>
+
+
+	<div class="modal fade bs-example-modal-lg project-<%=project_for_all['repo_id']%>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title"><b><font size="6"><%=project_for_all['name']%></font></b> by <%=project_for_all['owner']%></h4>
+				</div>
+
+				<div class="modal-body">
+					<% if (project_for_all['description'] != nil) then %>
+					<%= project_for_all['readme'] %>
+					<%else%>
+					No description availeble
+					<%end%>
+				</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</tr>
 <% end %>

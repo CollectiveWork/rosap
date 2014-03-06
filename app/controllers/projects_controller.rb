@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
 		project.description = params[:description]
 		project.url = params[:url]
 		project.owner = @username
+		project.readme = Base64.decode64 project.get_readme['content']
 
 		project.save!
 
@@ -41,6 +42,8 @@ class ProjectsController < ApplicationController
 	        format.js
 	  	end
 	end
+
+
 
 	private
     def get_username

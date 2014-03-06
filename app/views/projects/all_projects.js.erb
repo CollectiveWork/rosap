@@ -1,1 +1,6 @@
+<% if @repos.blank? %>
+$("#table-body").html(" <tr ><td colspan=\"6\">No data found.</td></tr>");
+	
+<% else %>
 $("#table-body").html("<%= escape_javascript(render partial: 'project_for_all', collection: @repos) %>");
+<% end %>

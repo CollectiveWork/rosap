@@ -17,7 +17,7 @@
 //= require bootstrap
 
 $(document).ready(function(){
-	$('#search').on('keyup', function() {
+	$('#search').bind('keyup', function() {
 		$("form#products_search").submit();
 	});
 });
