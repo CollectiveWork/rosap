@@ -42,11 +42,6 @@ ActiveRecord::Schema.define(version: 20140306212304) do
 
   add_index "projects", ["repo_id"], name: "index_projects_on_repo_id", unique: true
 
-  create_table "static_pages", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "user_githubs", force: true do |t|
     t.string "username", null: false
     t.string "password", null: false
