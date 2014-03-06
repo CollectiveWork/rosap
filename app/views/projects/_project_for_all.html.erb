@@ -10,7 +10,7 @@
 <tr>
 
 
-	<div class="modal fade bs-example-modal-lg project-<%=project_for_all['repo_id']%>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal  bs-example-modal-lg project-<%=project_for_all['repo_id']%>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
 
 			<div class="modal-content">
@@ -20,10 +20,10 @@
 				</div>
 
 				<div class="modal-body">
-					<% if (project_for_all['description'] != nil) then %>
+					<% if (project_for_all['readme'] != nil) then %>
 					<%= project_for_all['readme'] %>
 					<%else%>
-					No description availeble
+					No readme available
 					<%end%>
 				</div>
 				

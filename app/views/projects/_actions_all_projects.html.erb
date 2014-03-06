@@ -1,1 +1,4 @@
-<a href="#" data-toggle="modal" data-target=".project-<%=project['repo_id']%>">View Readme</a>
+<a href="#" data-toggle="modal" data-target=".project-<%=project['repo_id']%>">View Readme</a> | 
+<%= link_to "FB Share", fb_auth_path(message: "Have a look at this awsome Open Source project.", picture: project['avatar_url'], link: project['url'], name: project['name'], description: project['description']), method: :post %>
+
+

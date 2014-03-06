@@ -1,0 +1,26 @@
+<div id="sample" >
+Post a simple story to your wall <br/>
+
+<%= form_tag "/post_story/auth", method: :post do %>
+	<%= text_field_tag :message, 'Updating via FbGraph', size:60 %> <br/>
+	<%= text_field_tag :picture, 'https://graph.facebook.com/matake/picture', size:60 %> <br/>
+	<%= text_field_tag :link, 'https://github.com/nov/fb_graph', size:60 %> <br/>
+	<%= text_field_tag :name, 'FbGraph', size:60 %> <br/>
+	<%= text_field_tag :description, 'A Ruby wrapper for Facebook Graph API', size:60 %> <br/>
+	<%= submit_tag "Post" %>
+<%end%>
+
+
+<!--
+<% "Pui hidden fields pentru fiecare entiate pe care vrei sa o postezi" %>
+<%= form_tag "/post_story/auth", method: :post do %>
+	<%= hidden_field_tag :message, '<<mesajul>>' %> 
+	<%= hidden_field_tag :picture, '<<imaginea>>' %> 
+	<%= hidden_field_tag :link, '<<linkul>>' %> 
+	<%= hidden_field_tag :name, '<<numele>>' %> 
+	<%= hidden_field_tag :description, '<<descrierea>>' %> 
+	<%= submit_tag "Post" %>
+<%end%>
+-->
+
+</div>
