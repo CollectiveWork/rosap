@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
 		project = Project.new
 		project.repo_id = params[:repo_id]
 		project.name = params[:name]
-		project.description = params[:edscription]
+		project.description = params[:description]
 		project.url = params[:url]
 		project.owner = @username
 		project.readme = Base64.decode64 project.get_readme['content']

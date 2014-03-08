@@ -7,14 +7,14 @@ class UsersGithubController < ApplicationController
 	def make_login
 		client = UserGithub.new(client_params)
 		@response = client.get_user_details
+		puts "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 		puts @response.inspect
-
-		session[:github_current_user] = @response
 
 		respond_to do |format|
 			if @response['message'] == "Bad credentials"
-				format.html { redirect_to github_login_path, notice: "Bad credentials." }
+				format.html { redirect_to github_login_path, notice: {message: "Bad credentials.", type: "danger"} }
 			else
+				session[:github_current_user] = @response
 	        	format.html { redirect_to projects_path}
 	        end
 	  	end
