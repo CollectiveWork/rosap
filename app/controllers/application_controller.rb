@@ -11,11 +11,11 @@ class ApplicationController < ActionController::Base
   end
 
 	
-  def get_current_user_name 
-		return session[:github_current_user]['login'] if session[:github_current_user]['name'].blank? 
-    session[:github_current_user]['name']
-  end
+  # def get_current_user_name 
+		# return session[:github_current_user]['login'] if session[:github_current_user]['name'].blank? 
+  #   session[:github_current_user]['name']
+  # end
   helper_method :current_user
-  helper_method :get_current_user_name
+  # helper_method :get_current_user_name
   
 end
