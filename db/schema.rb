@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306212304) do
+ActiveRecord::Schema.define(version: 20140308143841) do
 
   create_table "github_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140306212304) do
     t.string  "description"
     t.string  "url"
     t.string  "owner"
-    t.string  "readme"
+    t.text    "readme",      limit: 255
   end
 
   add_index "projects", ["repo_id"], name: "index_projects_on_repo_id", unique: true
