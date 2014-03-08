@@ -10,11 +10,12 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-	def get_current_user_name 
+	
+  def get_current_user_name 
 		return session[:github_current_user]['login'] if session[:github_current_user]['name'].blank? 
     session[:github_current_user]['name']
   end
-
   helper_method :current_user
+  helper_method :get_current_user_name
   
 end
