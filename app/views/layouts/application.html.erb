@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ROSAP</title>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+	<title>ROSAP</title>
+	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'layouts/header' %>
-<div class="container">
-<%= yield %>
-<%= render 'layouts/footer' %>
-</div>
+	<%= render 'layouts/header' %>
+	<% unless flash[:notice].nil? %>
+		<div class="alert alert-<%= flash[:notice][:type] %>"><%= flash[:notice][:message] %></div>
+	<% end %>
+	<div class="container">
+		<%= yield %>
+		<%= render 'layouts/footer' %>
+	</div>
 </body>
 </html>

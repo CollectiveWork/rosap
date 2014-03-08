@@ -42,7 +42,7 @@ class PostStoryController < ApplicationController
 	  :description => cookies["description"]
 	) 
  
-    redirect_to all_projects_path
+    redirect_to all_projects_path, notice: {message: "The project was succesfully posted on your wall", type: "success"}
  
   end
  
