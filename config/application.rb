@@ -13,7 +13,7 @@ module Rosap
   class Application < Rails::Application
     load 'lib/githubapi/GithubCredentials.rb'
 
-    @github_current_user = {}
+    
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -27,16 +27,5 @@ module Rosap
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    def set_github_current_user github_current_user
-        @github_current_user = github_current_user
-    end
-
-    def get_github_current_user
-        @github_current_user
-    end
-    def get_github_current_user_name
-        return @github_current_user['login'] if @github_current_user['name'].blank? 
-        @github_current_user['name']
-    end
   end
 end

@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
 		project = Project.new
 		project.repo_id = params[:repo_id]
 		project.name = params[:name]
-		project.description = params[:description]
+		project.description = params[:edscription]
 		project.url = params[:url]
 		project.owner = @username
 		project.readme = Base64.decode64 project.get_readme['content']
@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
 	private
     def get_username
     	begin
-    		@username = Rosap::Application.get_github_current_user['login']
+    		@username = session[:github_current_user]['login']
     	rescue
     		redirect_to root_path
     	end

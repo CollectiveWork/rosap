@@ -8,8 +8,8 @@ class UsersGithubController < ApplicationController
 		client = UserGithub.new(client_params)
 		@response = client.get_user_details
 		puts @response.inspect
-		Rosap::Application.set_github_current_user @response
 
+		session[:github_current_user] = @response
 
 		respond_to do |format|
 			if @response['message'] == "Bad credentials"
@@ -27,7 +27,7 @@ class UsersGithubController < ApplicationController
 	end
 
 	def destroy
-		Rosap::Application.set_github_current_user nil
+		session[:github_current_user] = nil
 		redirect_to root_path
 	end
 
